@@ -1,0 +1,26 @@
+html
+	height: 100%
+	scroll-behavior: smooth
+body
+	font-family: $main-font
+	color: $primary-text-color
+	background-color: $body-bg-color
+	font-weight: 500
+	height: 100%
+	overflow-x: hidden
+input, textarea
+	&:focus::placeholder
+		color: transparent !important
+
+.wrapper
+	display: flex
+	flex-direction: column
+	min-height: 100%
+.main
+	flex: 1 1 auto
+	margin-top: 100px
+.clear
+	clear: both
+@media screen and ( min-width: 1600px )
+	.container
+		max-width: 1540px

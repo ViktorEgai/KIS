@@ -1,0 +1,70 @@
+.form
+  border-radius: 20px
+  background: $grey
+  padding: 32px
+  &__title
+    @include font (48px, 120%, 600)
+    margin-bottom: 8px
+  &-notice
+    color: $sec-text-color
+    @include font (18px, 140%)
+    margin-bottom: 24px
+  &-label
+    @include font (18px, 140%,600)
+    margin-bottom: 8px
+    display: block
+  &-input
+    padding: 10px 15px
+    width: 100%
+    border-radius: 8px
+    border: 1px solid $ter-text-color
+    background-color: transparent
+    &::placeholder
+      color: $ter-text-color
+    &.invalid
+      border-color: red
+      color: red
+  .error
+    color: red
+    font-size: 14px
+    margin-top: 10px
+    display: none
+    &.active
+      display: block
+  &-textarea
+    resize: none
+  &__select
+    background-color: #fff
+    appearance: none
+    background-image: url(../img/arrow.svg)
+    background-repeat: no-repeat
+    background-position: 98% 50%
+    cursor: pointer
+  &-btn
+  &-acceptance
+    display: flex
+    align-items: center
+    margin-left: 20px
+    cursor: pointer
+    max-width: 285px
+    input
+      flex: 1 1 auto
+      width: 16px
+      height: 16px
+      border: 1px solid $sec-text-color
+      border-radius: 5px
+      margin-right: 10px
+      position: relative
+      display: flex
+      align-items: center
+      justify-content: center
+      appearance: auto
+
+    span
+      display: block
+      max-width: 265px
+@media screen and ( max-width: 992px )
+  .form-acceptance
+    margin: 20px 0 0
+  .form__title
+    font-size: 24px

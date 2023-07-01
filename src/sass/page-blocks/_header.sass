@@ -1,0 +1,78 @@
+.header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  right: 0
+  z-index: 20
+  padding: 40px 0 0
+  background-color: $body-bg-color
+
+  &-wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-bottom: 16px
+    border-bottom: 1px solid rgba(28, 28, 28, 0.20)
+  &__right
+    display: flex
+    align-items: center
+  &__info
+
+    &-item
+      display: flex
+      align-items: center
+      line-height: 140%
+      svg
+        margin-right: 8px
+      &:first-child
+        margin-bottom: 4px
+  &__btn
+    margin-left: 32px
+@media screen and ( max-width: 1400px )
+  .header
+    &__info-item
+      font-size: 12px
+      svg
+        width: 18px
+        height: 18px
+    &__btn
+      margin-left: 20px
+
+      padding: 12px
+  .header__logo
+    img
+      max-width: 40px
+    span
+      font-size: 10px
+      max-width: 65px
+@media screen and  (max-width: 1200px)
+  .header
+    padding-top: 20px
+    &-wrapper
+      border: none
+    &__logo
+      margin-right: auto
+    &-nav
+      display: none
+      position: fixed
+      top: 58px
+      background-color: $body-bg-color
+      width: 100%
+
+      left: 0
+      z-index: 99
+@media screen and ( max-width: 768px )
+  .header
+    &__btn
+      display: none
+    &__right
+      .phone
+        font-size: 0
+        margin: 0
+        svg
+          width: 34px
+          height: 34px
+          margin: 0
+      .email
+        display: none

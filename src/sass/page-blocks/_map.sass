@@ -1,0 +1,43 @@
+.map
+  position: relative
+  &__image
+    svg
+      width: 100%
+      height: 100%
+    path
+      transition: .3s
+
+      &.hovered
+        stroke-width: 3px
+        stroke: $main-color
+        cursor: pointer
+  &-fields
+    display: flex
+    justify-content: flex-end
+  &-field__item
+    position: fixed
+    padding: 16px
+    font-size: 18px
+    border-radius: 8px
+    background: $grey
+    line-height: 140%
+
+    z-index: 10
+    display: none
+    &.active
+      display: block
+
+    &.fixed
+      position: absolute
+      bottom: 0
+      right: 0
+    &-title
+      margin-bottom: 8px
+      font-weight: 600
+    &-text
+      span
+        font-weight: 600
+        color: $main-color
+@media screen and ( max-width: 992px )
+  .map-field__item.fixed
+    position: static

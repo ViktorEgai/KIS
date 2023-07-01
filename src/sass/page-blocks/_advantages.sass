@@ -1,0 +1,78 @@
+.advantages
+
+  &-wrapper
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      background-image: url(../img/foot.png)
+      width: 136px
+      height: 106px
+      right: 15%
+      top: -90px
+  &__image
+    border-radius: 20px
+    overflow: hidden
+    img
+      width: 100%
+  &__title
+    margin-bottom: 64px
+  &__info
+    margin-left: 11%
+  &-card
+    background-color: $grey
+    padding: 16px 24px
+    height: 100%
+    border-radius: 20px
+    cursor: pointer
+    *
+      transition: .3s
+    &.active
+      .advantages-card
+        &__toggler
+          background-color: $main-color
+          span
+            margin-left: auto
+        &__title
+          color: $primary-text-color
+        &__text
+          color: $sec-text-color
+  &-card__toggler
+    width: 51px
+    height: 31px
+    background-color: rgba(120, 120, 128, 0.16)
+    border-radius: 20px
+    display: flex
+    align-items: center
+    padding: 0 2px
+    margin-bottom: 10px
+    span
+      display: block
+      width: 27px
+      height: 27px
+      background-color: #fff
+      border-radius: 50%
+      box-shadow: 0 3px 8px rgba(0,0,0,.15)
+  &-card__title
+    @include font(18px, 140%,600)
+    margin-bottom: 8px
+    color: $sec-text-color
+  &-card__text
+    color: $ter-text-color
+    @include font(16px, 140%)
+@media screen and ( max-width: 1600px )
+  .advantages
+    &__info
+      margin-left: 3%
+@media screen and ( max-width: 1400px )
+  .advantages__title
+    margin-bottom: 40px
+@media screen and ( max-width: 992px )
+  .advantages
+    &__info
+      margin-left: 0
+@media screen and ( max-width: 768px )
+  .advantages-wrapper:before
+    display: none
+  .advantages__title
+    margin-bottom: 32px

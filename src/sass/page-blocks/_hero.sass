@@ -1,0 +1,55 @@
+.hero
+
+  &-wrapper
+    border-radius: 20px
+    background: linear-gradient(124deg, #000D2D 0%, #0C1940 100%)
+    position: relative
+  &__title
+    padding-bottom: 24px
+    border-bottom: 1px solid rgba(249, 249, 249, 0.2)
+    margin-bottom: 24px
+  &-text
+    padding-top: 72px
+    padding-left: 72px
+    padding-bottom: 226px
+    position: relative
+    z-index: 2
+  &__image
+    position: absolute
+    bottom: 0
+    right: 0
+    height: 100%
+    width: 65%
+    z-index: 1
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+    &::before
+      content: ''
+      position: absolute
+      // opacity: 0.5
+      background: url(../img/cat-bg.png) 50% / cover no-repeat
+      width: 100%
+      height: 100%
+      mix-blend-mode: multiply
+      z-index: -1
+@media screen and ( max-width: 1400px )
+  .hero-text
+    padding: 45px 0 160px 45px
+  .hero__image
+    width: 70%
+@media screen and ( max-width: 992px )
+  .hero
+    &__image
+      position: relative
+    &-text
+      padding: 32px 20px 10px
+@media screen and ( max-width: 576px )
+  .hero
+    &-wrapper
+      overflow: hidden
+    &__image
+      width: 600px
+      margin-left: -20%

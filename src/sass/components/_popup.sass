@@ -1,0 +1,89 @@
+.popup
+  display: none
+  max-width: 870px
+  padding: 32px
+  width: 100%
+  border-radius: 20px
+  .is-close-btn
+    top: 32px !important
+    right: 32px !important
+    opacity: 1 !important
+    background: none !important
+    path
+      stroke: #000
+  &-title
+    @include font (32px, 120%,600)
+    margin-bottom: 24px
+  &__image
+    height: 75px
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 8px
+    border: 1px solid rgba(0, 0, 0, 0.20)
+    background: #F9F9F9
+    padding: 5px 10px
+    img
+      max-height: 100%
+      object-fit: cover
+  &__form
+    background-color: transparent
+    padding: 0
+.vendor-popup
+
+  &__title
+    @include font(18px, 140%,600)
+    margin-bottom: 8px
+  &__status
+    @include font(16px, 140%)
+
+    span
+      @include font(18px, 140%,600)
+  &-descr__title
+    @include font(18px, 140%,600)
+    margin-bottom: 24px
+  &-descr__text
+    @include font(16px, 140%)
+    color: $sec-text-color
+    margin-bottom: 24px
+    a
+      text-decoration: underline
+      &:hover
+        color: $primary-text-color
+.success-popup
+  padding: 60px 90px
+  text-align: center
+  color: rgba(28, 28, 30, 0.90)
+  &-title
+    font-size: 48px
+    font-weight: 600
+    margin-bottom: 60px
+  svg
+    margin: auto
+    display: block
+  &-text
+    margin: 30px auto 0
+    font-size: 24px
+    line-height: 130%
+    max-width: 395px
+
+@media screen and ( max-width: 576px )
+  .popup-title
+    font-size: 24px
+    margin-bottom: 8px
+  .popup .is-close-btn
+    top: 10px !important
+    right: 10px !important
+  .success-popup
+    padding: 30px
+
+    &-title
+      font-size: 28px
+      font-weight: 600
+      margin-bottom: 30px
+    svg
+      width: 120px
+      height: 120px
+    &-text
+      margin: 20px auto 0
+      font-size: 18px

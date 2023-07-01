@@ -1,0 +1,40 @@
+
+.contacts
+
+  iframe
+    width: 100%
+    border: 0
+  &-map
+    filter: grayscale(1)
+    border-radius: 20px
+    overflow: hidden
+    margin-right: 100px
+  &__title
+    margin-bottom: 64px
+  &-item
+    margin-bottom: 32px
+  &-item__title
+    @include font (18px, 140%, 600)
+    color: $sec-text-color
+    margin-bottom: 8px
+  &-item__text
+    @include font (32px, 120%, 600)
+
+  &__btn
+    margin-top: 96px
+@media screen and ( max-width: 1400px )
+  .contacts
+    &-map
+      margin: 0
+    &__btn
+      margin-top: 70px
+@media screen and ( max-width: 768px )
+  .contacts
+    &__title
+      margin-bottom: 32px
+    &-item__text
+      font-size: 18px
+    &__btn
+      margin-top: 32px
+    iframe
+      height: 420px

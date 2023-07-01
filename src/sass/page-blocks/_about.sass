@@ -1,0 +1,43 @@
+.about
+
+  &-wrapper
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      background-image: url(../img/foot.png)
+      width: 136px
+      height: 106px
+      left: -6%
+      top: 40%
+      z-index: -1
+  &__image
+    border-radius: 20px
+    overflow: hidden
+    margin-right: 90px
+  &__title
+    margin-bottom: 64px
+  &__text
+    color: $sec-text-color
+    p
+      margin-bottom: 1.2em
+  &-list
+    margin-top: 32px
+  &-list__item
+    border-radius: 8px
+    background-color: $grey
+    padding: 16px
+    height: 100%
+  &-list__title
+    @include font (32px, 120%,600)
+    margin-bottom: 8px
+  &-list__text
+    color: $sec-text-color
+@media screen and ( max-width: 1400px )
+  .about
+    &__image
+      margin-right: 0
+@media screen and ( max-width: 1200px )
+  .about
+    &__title
+      margin-bottom: 32px

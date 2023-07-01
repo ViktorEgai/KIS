@@ -1,0 +1,199 @@
+.partners
+
+  &-wrapper
+
+  &__title
+    margin-bottom: 74px
+  &-tab
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      background-image: url(../img/foot.png)
+      width: 136px
+      height: 106px
+      right: -13%
+      top: 30px
+      z-index: -1
+  &-tab-nav
+    border-bottom: 3px solid $ter-text-color
+    display: flex
+
+  &-tab-nav-item
+    width: 100%
+    height: 100%
+    text-align: left
+    display: flex
+    padding: 10px 10px 26px
+    position: relative
+    color: $sec-text-color
+    min-width: 202px
+    margin-right: 16px
+    min-height: 80px
+    &::before
+      content: ''
+      position: absolute
+      width: 0
+      bottom: 1px
+      left: 0
+      border-bottom: 3px solid $main-color
+      transition: .4s
+
+    &.active
+      color: $primary-text-color
+      font-weight: 700
+      &::before
+        width: 100%
+  &-arrow
+    display: flex
+    align-items: center
+    white-space: nowrap
+    position: absolute
+    right: 0
+    top: 50%
+    transform: translateY(-50%)
+    &__item
+      position: static
+      width: auto
+      color: rgba(28, 28, 30, 0.90)
+      display: flex
+      align-items: center
+      gap: 10px
+      height: auto
+      margin: 0
+      transition: .3s
+      &:first-child
+        margin-right: 16px
+      &::after
+        display: none
+  .swiper-slide
+    padding: 5px 0
+  .swiper-bottom
+    height: 40px
+    position: relative
+    margin-top: 48px
+    display: flex
+    align-items: center
+    justify-content: center
+  .swiper-pagination
+    display: flex
+    align-items: center
+    width: fit-content
+
+    position: static
+    margin: auto
+  .swiper-pagination-bullet
+    border-radius: 8px
+    display: flex
+    width: 40px
+    height: 40px
+    justify-content: center
+    align-items: center
+    background-color: transparent
+    color: $sec-text-color
+    opacity: 1
+    transition: .3s
+    &-active
+      background-color: $main-color
+      color: #fff
+.partners-tab-body
+  padding-top: 48px
+  &__item
+    display: none
+    &.active
+      display: block
+.partners-card-small
+  display: flex
+  flex-direction: column
+
+  height: 100%
+  padding: 16px 32px
+  background-color: $grey
+  border-radius: 20px
+  transition: .3s
+  &__image
+    background-color: #fff
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 10px 20px
+    margin-bottom: 16px
+    border-radius: 20px
+    height: 108px
+    img
+      max-height: 100%
+  &__title
+    @include font (18px, 140%,600)
+    margin-bottom: 8px
+  &__status
+    @include font (16px, 140%)
+    color: $sec-text-color
+    margin-bottom: 32px
+  &__btn
+    width: 100%
+    font-size: 16px
+    margin-top: auto
+.partners-card
+  height: 100%
+  display: flex
+  flex-direction: column
+  transition: .3s
+  &__image
+    padding: 10px 34px
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 309px
+    border-radius: 20px
+    border: 1px solid rgba(0, 0, 0, 0.20)
+    background: #F9F9F9
+    img
+      max-height: 100%
+  &__title
+    @include font (18px, 140%,600)
+    margin-bottom: 16px
+  &__status
+    color: $sec-text-color
+    margin-bottom: 8px
+    span
+      color: rgba(0, 0, 0, 0.90)
+  &__descr
+    color: $sec-text-color
+    margin-bottom: 32px
+    span
+      color: rgba(0, 0, 0, 0.90)
+      display: block
+      margin-bottom: 4px
+  &__btn
+
+@media screen and ( min-width:992px )
+  .partners-card__image:hover, .partners-card-small:hover
+    cursor: pointer
+    background: rgba(205, 207, 214, 0.50)
+    .btn
+      background-color: $btn-color-hover
+      border-color: $btn-color-hover
+      color: $main-color
+  .partners .swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover
+    background-color: $btn-color-hover
+@media screen and ( max-width: 1600px )
+  .partners-tab-nav
+    white-space: nowrap
+    overflow-x: auto
+@media screen and ( max-width: 1400px )
+  .partners-card__image
+    height: 240px
+@media screen and ( max-width: 1200px )
+  .partners
+    & .swiper-bottom
+      flex-direction: column
+    &-arrow
+      position: static
+      transform: none
+      margin-top: 32px
+    &-tab
+      &::before
+        display: none
+@media screen and ( max-width: 992px )
+  .partners__title
+    margin-bottom: 32px

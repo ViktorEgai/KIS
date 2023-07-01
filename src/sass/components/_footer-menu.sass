@@ -1,0 +1,26 @@
+.footer-menu
+  display: flex
+  align-items: center
+  justify-content: center
+  &__item
+    margin: 0 15px
+    @include font( 12px,14px,300)
+    text-transform: uppercase
+    white-space: nowrap
+    color: #fff
+    a
+
+      transition: .3s
+  &-submenu
+@media screen and ( max-width: 1200px )
+  .footer-menu__item
+    margin: 0 12px
+@media screen and ( max-width:992px  )
+  .footer-menu
+    flex-direction: column
+    &__item
+      margin-bottom: 20px
+@media screen and ( min-width: 992px )
+  .footer-menu__item a:hover
+    text-decoration: underline
+    color: #c1e4ff

@@ -1,0 +1,33 @@
+.btn
+  // text
+  @include font (16px, 140%, 600)
+
+  text-align: center
+
+  // sizes
+  padding: 13px 30px
+  display: flex
+  align-items: center
+  justify-content: center
+
+  // colors
+  background-color: $btn-color
+  color: #FFFFFF
+
+  // border
+  border: 1px solid $btn-color
+  border-radius: 8px
+  // transition
+  transition: .3s
+
+  position: relative
+
+  overflow: hidden
+  &:disabled
+    opacity: 0.5
+    cursor: default
+@media screen and ( min-width: 992px )
+  .btn:not(:disabled):hover
+    background-color: $btn-color-hover
+    border-color: $btn-color-hover
+    color: $main-color

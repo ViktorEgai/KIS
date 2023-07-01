@@ -1,0 +1,84 @@
+.clients
+  overflow-x: hidden
+  &__title
+    margin-bottom: 64px
+  &-swiper
+
+  &-slide
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 100%
+    min-height: 160px
+    padding: 10px
+    background-color: $grey
+    border-radius: 8px
+    img
+      max-height: 100%
+  &-bottom
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    margin-top: 46px
+  &-bottom-pagination
+    width: fit-content !important
+    .swiper-pagination-bullet
+      border-radius: 4px
+      background: rgba(0, 0, 0, 0.20)
+      opacity: 1
+      width: 13px
+      height: 13px
+      margin: 0 2px
+      &.swiper-pagination-bullet-active
+        background-color: $main-color
+  &-bottom__arrows
+    position: absolute
+    top: 50%
+    right: 0
+    transform: translateY(-50%)
+    display: flex
+    align-items: center
+    gap: 10px
+  &-bottom-button
+    width: 42px
+    height: 42px
+    border-radius: 8px
+    border: 1px solid rgba(255, 255, 255, 0.10)
+    background: rgba(4, 17, 51, 0.08)
+    display: flex
+    align-items: center
+    justify-content: center
+    transition: .3s
+    path
+      transition: .3s
+
+@media screen and ( min-width: 992px )
+  .clients-bottom-button:hover
+    background-color: $main-color
+    path
+      fill-opacity: 1
+      fill: rgba(249, 249, 249, 1)
+@media screen and ( max-width: 992px )
+  .clients
+    &__title
+      margin-bottom: 32px
+@media screen and ( max-width: 768px )
+  .clients
+    &-wrapper
+      position: relative
+    &-bottom
+      flex-direction: column
+      margin-top: 16px
+      position: static
+    &-bottom__arrows
+      top: -5px
+      transform: none
+      display: flex
+      align-items: center
+      gap: 10px
+      margin-top: 0
+@media screen and ( max-width: 576px )
+  .clients-slide
+    max-width: 225px
+    width: 100%

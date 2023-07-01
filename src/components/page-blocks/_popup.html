@@ -1,0 +1,108 @@
+<div class="popup vendor-popup" id="vendor-popup">
+	<div class="popup-title">Информационная безопасность</div>
+	<div class="row mb-4">
+		<div class="col-md-5">
+			<div class="popup__image">
+				<img src="./img/partners/logo1cp.png" alt="" />
+			</div>
+		</div>
+		<div class="col-md-7">
+			<div class="vendor-popup__title">Решения на базе “1С”</div>
+			<div class="vendor-popup__status"><span>Статус:</span> Франчайзи</div>
+		</div>
+	</div>
+	<div class="vendor-popup-descr__title">Описание:</div>
+	<div class="vendor-popup-descr__text"></div>
+	<form class="form popup__form">
+		<div class="form-notice">Заполните данные и мы свяжемся с вами и проконсультируем по интересующему продукту</div>
+
+		<div class="row">
+			<input type="hidden" name="form_place" value="попап вендора" />
+			<div class="col-md-3">
+				<label for="vendor_username" class="form-label"> Ваше имя* </label>
+				<input type="text" class="form-input" required placeholder="Ваше имя" id="vendor_username" name="username" />
+			</div>
+			<div class="col-md-3">
+				<label for="vendor_usercompany" class="form-label"> Название компании </label>
+				<input type="text" class="form-input" placeholder="Название компании" id="vendor_usercompany" name="usercompany" />
+			</div>
+			<div class="col-md-3">
+				<label for="vendor_userphone" class="form-label"> Ваш телефон* </label>
+				<input type="tel" class="form-input" required placeholder="Ваш телефон*" id="vendor_userphone" name="userphone" />
+			</div>
+			<div class="col-md-3">
+				<label for="vendor_useremail" class="form-label">Ваш Email </label>
+				<input type="email" class="form-input" placeholder="Ваш Email" id="vendor_useremail" name="useremail" />
+			</div>
+			<div class="col mt-4">
+				<label for="vendor_usercomment" class="form-label">Комментарий </label>
+				<textarea name="usercomment" id="vendor_usercomment" class="form-textarea form-input" placeholder="Ваша задача или комментарий*"></textarea>
+			</div>
+		</div>
+		<div class="d-flex mt-4 flex-column flex-lg-row">
+			<button class="btn form-btn" type="submit">Отправить заявку</button>
+
+			<label class="form-acceptance">
+				<input type="checkbox" name="acceptance" checked />
+				<span>Даю свое согласие на обработку персональных данных</span></label
+			>
+		</div>
+		<div class="error">Поле или несколько полей заполнены некорректно!</div>
+	</form>
+</div>
+<div class="popup" id="popup">
+	<div class="popup-title">Связаться с нами</div>
+
+	<form class="form popup__form">
+		<div class="form-notice">Заполните данные и мы свяжемся с вами и проконсультируем по интересующему продукту</div>
+
+		<div class="row">
+			<input type="hidden" name="form_place" value="попап форма" />
+			<div class="col-md-3">
+				<label for="popup_username" class="form-label"> Ваше имя* </label>
+				<input type="text" class="form-input" required placeholder="Ваше имя" id="popup_username" name="username" />
+			</div>
+			<div class="col-md-3">
+				<label for="popup_usercompany" class="form-label"> Название компании </label>
+				<input type="text" class="form-input" placeholder="Название компании" id="popup_usercompany" name="usercompany" />
+			</div>
+			<div class="col-md-3">
+				<label for="popup_userphone" class="form-label"> Ваш телефон* </label>
+				<input type="tel" class="form-input" required placeholder="Ваш телефон*" id="popup_userphone" name="userphone" />
+			</div>
+			<div class="col-md-3">
+				<label for="popup_useremail" class="form-label">Ваш Email </label>
+				<input type="email" class="form-input" placeholder="Ваш Email" id="popup_useremail" name="useremail" />
+			</div>
+			<div class="col mt-4">
+				<label for="popup_usercomment" class="form-label">Комментарий </label>
+				<textarea name="usercomment" id="popup_usercomment" class="form-textarea form-input" placeholder="Ваша задача или комментарий*"></textarea>
+			</div>
+		</div>
+		<div class="d-flex mt-4 flex-column flex-lg-row">
+			<button class="btn form-btn" type="submit">Отправить заявку</button>
+
+			<label class="form-acceptance">
+				<input type="checkbox" name="acceptance" checked />
+				<span>Даю свое согласие на обработку персональных данных</span></label
+			>
+		</div>
+		<div class="error">Поле или несколько полей заполнены некорректно!</div>
+	</form>
+</div>
+
+<div class="popup success-popup" id="success-popup">
+	<div class="success-popup-title">Спасибо за вашу заявку!</div>
+	<svg width="202" height="202" viewBox="0 0 202 202" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path
+			opacity="0.5"
+			d="M101 185.167C61.3234 185.167 41.4851 185.167 29.1592 172.841C16.8333 160.515 16.8333 140.677 16.8333 101C16.8333 61.3235 16.8333 41.4852 29.1592 29.1593C41.4851 16.8333 61.3234 16.8333 101 16.8333C140.676 16.8333 160.515 16.8333 172.841 29.1593C185.167 41.4852 185.167 61.3235 185.167 101C185.167 140.677 185.167 160.515 172.841 172.841C160.515 185.167 140.676 185.167 101 185.167Z"
+			fill="#041133"
+		/>
+		<path
+			d="M134.922 75.4947C137.387 77.9599 137.387 81.9568 134.922 84.4219L92.8387 126.505C90.3735 128.97 86.3767 128.97 83.9115 126.505L67.0781 109.672C64.613 107.207 64.613 103.21 67.0781 100.745C69.5433 98.2795 73.5402 98.2795 76.0054 100.745L88.3751 113.114L125.995 75.4947C128.46 73.0295 132.457 73.0295 134.922 75.4947Z"
+			fill="#041133"
+		/>
+	</svg>
+	<div class="success-popup-text">Наш администратор свяжется с вами в рабочее время</div>
+</div>
