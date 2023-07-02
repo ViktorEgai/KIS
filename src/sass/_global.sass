@@ -21,6 +21,16 @@ input, textarea
 	margin-top: 100px
 .clear
 	clear: both
+
+html.with-fancybox body.hide-scrollbar
+	overflow: visible !important
+	margin: 0 !important
 @media screen and ( min-width: 1600px )
 	.container
 		max-width: 1540px
+@media screen and ( max-width: 768px )
+	.main
+		margin-top: 50px
+	.container
+		padding: 0 15px
+		max-width: 96%

@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+	Fancybox.defaults.autoFocus = false;
 	const anchorScroll = () => {
 		const btn = document.querySelector(".header-menu-btn"),
 			menu = document.querySelector(".header-mobile-menu");
@@ -37,60 +38,60 @@ document.addEventListener("DOMContentLoaded", () => {
 	const flipCards = () => {
 		const cardsItems = document.querySelectorAll(".cards-item");
 
-		cardsItems.forEach((item) => {
-			if (
-				navigator.userAgent.match(/Android/i) ||
-				navigator.userAgent.match(/webOS/i) ||
-				navigator.userAgent.match(/iPhone/i) ||
-				navigator.userAgent.match(/iPad/i) ||
-				navigator.userAgent.match(/iPod/i) ||
-				navigator.userAgent.match(/BlackBerry/i) ||
-				navigator.userAgent.match(/Windows Phone/i) ||
-				window.innerWidth < 992
-			) {
-				console.log("mobile");
-				item.addEventListener("click", () => {
-					const back = item.querySelector(".cards-item__back");
-					Fancybox.show([{ src: back, type: "inline" }]);
-				});
-			}
-
-			item.addEventListener("mouseenter", () => {
-				item.classList.add("hovered");
+		if (cardsItems.length > 0) {
+			cardsItems.forEach((item) => {
+				if (
+					navigator.userAgent.match(/Android/i) ||
+					navigator.userAgent.match(/webOS/i) ||
+					navigator.userAgent.match(/iPhone/i) ||
+					navigator.userAgent.match(/iPad/i) ||
+					navigator.userAgent.match(/iPod/i) ||
+					navigator.userAgent.match(/BlackBerry/i) ||
+					navigator.userAgent.match(/Windows Phone/i) ||
+					window.innerWidth < 992
+				) {
+					item.addEventListener("click", () => {
+						const back = item.querySelector(".cards-item__back");
+						Fancybox.show([{ src: back, type: "inline" }]);
+					});
+				} else {
+					item.addEventListener("mouseenter", () => {
+						item.classList.add("hovered");
+					});
+					item.addEventListener("mouseleave", () => {
+						item.classList.remove("hovered");
+					});
+				}
 			});
-			item.addEventListener("mouseleave", () => {
-				item.classList.remove("hovered");
-			});
-			// item.addEventListener("click", () => {
-
-			// 	const back = item.querySelector('.cards-item__back');
-			// 	Fancybox.show([{ src: back, type: "inline" }]);
-			// });
-		});
+		}
 	};
 	flipCards();
 
 	const moveCatBG = () => {
 		const hero_image = document.querySelector(".hero__image");
 
-		document.addEventListener("mousemove", (e) => {
-			const x = e.screenX / 300,
-				y = -e.screenY / 100;
+		if (hero_image !== null) {
+			document.addEventListener("mousemove", (e) => {
+				const x = e.screenX / 300,
+					y = -e.screenY / 100;
 
-			hero_image.setAttribute("style", `--x:${x}% ;--y:${y}%;`);
-		});
+				hero_image.setAttribute("style", `--x:${x}% ;--y:${y}%;`);
+			});
+		}
 	};
 	moveCatBG();
 
 	const toggleAdvantagesCards = () => {
 		const advantages = document.querySelector(".advantages");
-		advantages.addEventListener("click", (e) => {
-			const target = e.target;
-			const advantagesCard = target.closest(".advantages-card");
-			if (advantagesCard) {
-				advantagesCard.classList.toggle("active");
-			}
-		});
+		if (advantages !== null) {
+			advantages.addEventListener("click", (e) => {
+				const target = e.target;
+				const advantagesCard = target.closest(".advantages-card");
+				if (advantagesCard) {
+					advantagesCard.classList.toggle("active");
+				}
+			});
+		}
 	};
 	toggleAdvantagesCards();
 
@@ -106,11 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
 				popupTitle.textContent = "Связаться с нами";
 				popupBtn.textContent = "Оставить заявку";
 				Fancybox.show([{ src: popup, type: "inline" }]);
+				Fancybox.autofocus = false;
 			}
 			if (target.closest(".consult-btn")) {
 				popupTitle.textContent = "Консультация";
 				popupBtn.textContent = "Получить консультацию";
 				Fancybox.show([{ src: popup, type: "inline" }]);
+				Fancybox.autofocus = false;
 			}
 		});
 	};
@@ -156,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				text: `<p>Базальт СПО — российский разработчик операционных систем «Альт»
 			Компания «Базальт СПО» — разработчик российских операционных систем «Альт». Развитие платформы для создания операционных систем ведётся более 20 лет. Все разработчики «Базальт СПО» являются членами ALT Linux Team — международной команды разработчиков свободного программного обеспечения.</p>
 			<p>Основой всех дистрибутивов «Альт» является модульная система управления Alterator, содержащая более 100 модулей для установки и конфигурирования системы. Дистрибутив представляет собой операционную систему на основе ядра Linux и набор системного и прикладного ПО, объединённых инсталлятором (установщиком). Дистрибутив представляет собой операционную систему на основе ядра Linux и набор системного и прикладного ПО, объединённых инсталлятором (установщиком).</p>
-			<p>Подробнее – <a href="https://www.basealt.ru/booklet" rel="nofollow" >Буклет: ООО «Базальт СПО» — российский разработчик операционных систем «Альт» | BaseALT</a></p>
+			<p>Подробнее – <a href="https://www.basealt.ru/booklet" rel="nofollow" target="_blank" >Буклет: ООО «Базальт СПО» — российский разработчик операционных систем «Альт» | BaseALT</a></p>
 			`,
 				img: "./img/partners/basealt.png",
 			},
@@ -170,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				text: `<p>Группа компаний «Астра» — один из лидеров российского рынка информационных технологий в области разработки программного обеспечения (ПО) и средств защиты информации (СЗИ).
 ГК «Астра» объединяет ряд самостоятельных отечественных компаний-разработчиков ПО: Astra Linux, «Увеон — облачные технологии», «РуБэкап», «Тантор Лабс», «Рупост» и ISPsystem. Программный стек вендора позволяет эффективно решать разнообразные бизнес-задачи и удовлетворить множество потребностей современных организаций. В портфель ГК «Астра» входят сертифицированная ОС Astra Linux, комплекс средств виртуализации «Брест», ПО для создания инфраструктур виртуальных рабочих мест Termidesk, средства резервного копирования RuBackup, решение для администрирования ИТ-инфраструктур ALD Pro, платформы управления и мониторинга СУБД PostgreSQL, СУБД Tantor, мобильное рабочее место WorksPad, корпоративная почта RuPost, а также три платформы для управления физическими, виртуальными инфраструктурами и биллинга: DCImanager, VMmanager и BILLmanager. Все программные продукты ГК «Астра» включены в реестр Минцифры и используются в государственных и коммерческих организациях, госкорпорациях и концернах, на промышленных предприятиях и объектах КИИ.
 </p>
-		<p>	Подробнее – <a href="https://astralinux.ru/" rel="nofollow" >Российские операционные системы (ОС), отечественное ПО для виртуализации и резервного копирования | Astra Linux
+		<p>	Подробнее – <a href="https://astralinux.ru/" rel="nofollow" target="_blank" >Российские операционные системы (ОС), отечественное ПО для виртуализации и резервного копирования | Astra Linux
 </a></p>
 			`,
 				img: "./img/partners/astra.png",
@@ -188,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </p>
 <p>Среди заказчиков РЕД СОФТ крупные коммерческие организации, а также более 20 органов государственной власти, в том числе Федеральная служба судебных приставов, Генеральная прокуратура РФ, Министерство обороны РФ. Активно внедряются проекты в регионах России
 </p>
-			<p>Подробнее – <a href="https://www.red-soft.ru/ru/" rel="nofollow" >РЕД СОФТ (red-soft.ru)</a></p>
+			<p>Подробнее – <a href="https://www.red-soft.ru/ru/" rel="nofollow" target="_blank" >РЕД СОФТ (red-soft.ru)</a></p>
 			`,
 				img: "./img/partners/redsoft.png",
 			},
@@ -204,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </p>
 			<p>Мультипродуктовая платформа МойОфис включает в себя набор необходимых настольных, мобильных и веб-приложений для общения и совместной работы с документами в любой точке мира.
 </p>
-			<p>Подробнее – <a href="https://myoffice.ru/" rel="nofollow" > МойОфис для корпораций | Безопасные офисные программы для общения и совместной работы с документами (myoffice.ru)
+			<p>Подробнее – <a href="https://myoffice.ru/" rel="nofollow" target="_blank" > МойОфис для корпораций | Безопасные офисные программы для общения и совместной работы с документами (myoffice.ru)
 </a></p>
 			`,
 				img: "./img/partners/myoffice.svg",
@@ -223,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <p>«Р7-Офис» неоднократно становился победителем премий Cnews Award, Tadviser Prize, Приоритет в различных номинациях.</p>
 <p>Разработчиком Р7-Офис является компания «Р7» из Нижнего Новгорода.
 </p>
-			<p>Подробнее – <a href="https://r7-office.ru/" rel="nofollow" >  https://r7-office.ru/
+			<p>Подробнее – <a href="https://r7-office.ru/" rel="nofollow" target="_blank" >  https://r7-office.ru/
 </a></p>
 			`,
 				img: "./img/partners/r7.svg",
@@ -240,7 +243,7 @@ RuPost – система управления корпоративной поч
 			<p>RuPost – система управления корпоративной почтой. Включает в себя библиотеку специально разработанных и протестированных шаблонов конфигураций, кластерный сервер для построения масштабируемой отказоустойчивой корпоративной почтовой системы, единую панель управления — от развёртывания до заведения почтовых ящиков и мониторинга состояния компонентов. 
 </p>
 
-			<p>Подробнее – <a href="https://www.rupost.ru/" rel="nofollow" >  RuPost - почтовая система для Linux
+			<p>Подробнее – <a href="https://www.rupost.ru/" rel="nofollow" target="_blank" >  RuPost - почтовая система для Linux
 </a></p>
 			`,
 				img: "./img/partners/rupost.svg",
@@ -261,7 +264,7 @@ RuPost – система управления корпоративной поч
 </p>
 
 			<p>Подробнее – <a href="https://contentai.ru/ 
-" rel="nofollow" >  https://contentai.ru/ 
+" rel="nofollow" target="_blank" >  https://contentai.ru/ 
 
 </a></p>
 			`,
@@ -281,7 +284,7 @@ RuPost – система управления корпоративной поч
 
 
 			<p>Подробнее – <a href="https://www.kaspersky.ru/ 
-" rel="nofollow" >  Защитные решения кибербезопасности для дома и бизнеса | Лаборатория Касперского (kaspersky.ru) 
+" rel="nofollow" target="_blank" >  Защитные решения кибербезопасности для дома и бизнеса | Лаборатория Касперского (kaspersky.ru) 
 
 </a></p>
 			`,
@@ -299,7 +302,7 @@ RuPost – система управления корпоративной поч
 			
 
 
-			<p>Подробнее – <a href="https://www.drweb.ru/" rel="nofollow" >   Dr Web - скачать антивирусную программу</a></p>
+			<p>Подробнее – <a href="https://www.drweb.ru/" rel="nofollow" target="_blank" >   Dr Web - скачать антивирусную программу</a></p>
 			`,
 				img: "./img/partners/dr.web.png",
 			},
@@ -311,7 +314,7 @@ RuPost – система управления корпоративной поч
 				short_text: `КриптоПро занимает лидирующее положение в сфере разработки СКЗИ и развития Инфраструктуры Открытых Ключей (PKI) в РФ. Продукты КриптоПро поддерживают все современные платформы, версии для мобильных устройств, интегрированы с ведущими российскими и зарубежными IT решениями, широко используются органами власти и коммерческими организациями.`,
 				text: `<p> КриптоПро занимает лидирующее положение в сфере разработки СКЗИ и развития Инфраструктуры Открытых Ключей (PKI) в РФ. Продукты КриптоПро поддерживают все современные платформы, версии для мобильных устройств, интегрированы с ведущими российскими и зарубежными IT решениями, широко используются органами власти и коммерческими организациями. Средства ЭП –  КриптоПро CSP/JCP установлены более чем на 10 000 000 серверах, ПК и мобильных устройствах. А КриптоПро УЦ внедрен более чем в 1000 организациях; в т.ч. в составе Головного УЦ Минкомсвязи России.
 			</p>
-			<p>Подробнее – <a href="https://www.cryptopro.ru/" rel="nofollow" > КриптоПро | Ключевое слово в защите информации (cryptopro.ru)</a></p>
+			<p>Подробнее – <a href="https://www.cryptopro.ru/" rel="nofollow" target="_blank" > КриптоПро | Ключевое слово в защите информации (cryptopro.ru)</a></p>
 			`,
 				img: "./img/partners/kriptopro.png",
 			},
@@ -325,7 +328,7 @@ RuPost – система управления корпоративной поч
 				text: `<p>Киберпротект — российский разработчик программного обеспечения мирового уровня для защиты данных, резервного копирования и восстановления виртуальных, физических и облачных сред. 
 Компания предоставляет масштабируемые решения мирового уровня для надежной киберзащиты, быстрого восстановления данных и гарантии отказоустойчивости информационных систем.</p><p>
 Наши заказчики – организации любого масштаба, которые заинтересованы в надежной киберзащите и быстром восстановлении данных и работоспособности ИТ-инфраструктуры. Продукты компании входят в Единый реестр российских программ для электронных вычислительных машин и баз данных Минцифры России, сертифицированы ФСТЭК.</p>
-			<p>Подробнее – <a href="https://www.cyberprotect.ru/" rel="nofollow" > Киберпротект - решения для защиты данных в России (cyberprotect.ru)</a></p>
+			<p>Подробнее – <a href="https://www.cyberprotect.ru/" rel="nofollow" target="_blank" > Киберпротект - решения для защиты данных в России (cyberprotect.ru)</a></p>
 			`,
 				img: "./img/partners/cyberprotect.png",
 			},
@@ -354,7 +357,7 @@ RuPost – система управления корпоративной поч
 <p>- Jinn-Client - Сертифицированное средство криптографической защиты информации для создания электронной подписи и доверенной визуализации документов</p>
 <p>- Jinn-Server - Сертифицированный программно-аппаратный комплекс для построения систем юридически значимого электронного документооборота.</p>
 
-			<p>Подробнее – <a href="https://www.securitycode.ru/" rel="nofollow" > Код Безопасности - лидер в области средств защиты информации (securitycode.ru)</a></p>
+			<p>Подробнее – <a href="https://www.securitycode.ru/" rel="nofollow" target="_blank" > Код Безопасности - лидер в области средств защиты информации (securitycode.ru)</a></p>
 			`,
 				img: "./img/partners/sc.png",
 			},
@@ -369,7 +372,7 @@ RuPost – система управления корпоративной поч
 <p>Консоль управления дает возможность из единого интерфейса управлять всем парком ПК, независимо от установленной ОС. TLS и 256 битное шифрование позволяют реализовать действительно безопасное подключение к удаленному ПК.    Современный стек технологий Rust, Python, YAML обеспечивает стабильную и бесперебойную работу даже на ПК с минимальными системными требованиями.</p>
 
 
-			<p>Подробнее – <a href="https://rudesktop.ru/" rel="nofollow" > RuDesktop - Приложение для быстрого удаленного доступа</a></p>
+			<p>Подробнее – <a href="https://rudesktop.ru/" rel="nofollow" target="_blank" > RuDesktop - Приложение для быстрого удаленного доступа</a></p>
 			`,
 				img: "./img/partners/rudesktop.png",
 			},
@@ -387,7 +390,7 @@ RuPost – система управления корпоративной поч
 <p>Система "1С:Предприятие" широко распространена в России и странах СНГ, успешно применяется организациями многих стран мира. Постановлением Правительства России от 21 марта 2002 года за создание и внедрение в отраслях экономики системы программ "1С:Предприятие" коллективу разработчиков – сотрудников "1С" была присуждена Премия Правительства РФ в области науки и техники.</p>
 
 
-			<p>Подробнее – <a href="https://1c.ru/" rel="nofollow" >  Фирма «1С» (1c.ru)</a></p>
+			<p>Подробнее – <a href="https://1c.ru/" rel="nofollow" target="_blank" >  Фирма «1С» (1c.ru)</a></p>
 			`,
 				img: "./img/partners/logo1cp.png",
 			},
@@ -427,7 +430,7 @@ RuPost – система управления корпоративной поч
 	    <li>Комплексная автоматизация инженерной подготовки производства и управления производством в машиностроении.</li>
 	    <li>Комплексная автоматизация проектной деятельности в промышленном и гражданском строительстве.</li>
     </ul>
-			<p>Подробнее – <a href="https://ascon.ru/" rel="nofollow" >АСКОН (ascon.ru)</a></p>
+			<p>Подробнее – <a href="https://ascon.ru/" rel="nofollow" target="_blank" >АСКОН (ascon.ru)</a></p>
 			`,
 				img: "./img/partners/ascon.svg",
 			},
@@ -453,7 +456,7 @@ RuPost – система управления корпоративной поч
 <p>Продукт российской компании:</p>
 <p>Смарт-Софт с 2003 года создает системы защиты информации и управления доступом в интернет. Поддержка и документация на русском языке. Соответствует требованиям ФСТЭК России.</p>
 
-			<p>Подробнее – <a href="https://www.smart-soft.ru/" rel="nofollow" >https://www.smart-soft.ru/</a></p>
+			<p>Подробнее – <a href="https://www.smart-soft.ru/" rel="nofollow" target="_blank" >https://www.smart-soft.ru/</a></p>
 			`,
 				img: "./img/partners/smartsoft.svg",
 			},
@@ -469,7 +472,7 @@ RuPost – система управления корпоративной поч
 	На сегодняшний день Компания «ИнфоТеКС» входит в ТОП-10 крупнейших ИБ-компаний России. Продукция ИнфоТеКС, наиболее известная по решению для защиты каналов связи корпоративных сетей, сегодня представляет собой современный комплекс решений, ориентированный на защиту от самых актуальных угроз информационной безопасности.
 </p>
 
-			<p>Подробнее – <a href="https://infotecs.ru/" rel="nofollow" >Официальный сайт компании «ИнфоТеКС» | Безопасность информационных систем и защита данных, программное обеспечение (infotecs.ru)</a></p>
+			<p>Подробнее – <a href="https://infotecs.ru/" rel="nofollow" target="_blank" >Официальный сайт компании «ИнфоТеКС» | Безопасность информационных систем и защита данных, программное обеспечение (infotecs.ru)</a></p>
 			`,
 				img: "./img/partners/infoteks.svg",
 			},
@@ -484,7 +487,7 @@ RuPost – система управления корпоративной поч
 <p>UserGate решает проблему защиты современной сетевой инфраструктуры от разнообразных интернет-угроз, связанных с внешними атаками, вредоносными приложениями, скриптами и другими рисками, а также позволяет применять гранулярные политики к интернет-пользователям в плане контроля как трафика, так и используемых приложений.</p>
 <p>UserGate работает на базе специально созданной и поддерживаемой операционной системы, а также на специально спроектированных аппаратных устройствах, позволяющих обеспечить наибольшую эффективность и скорость обработки трафика.</p>
 
-			<p>Подробнее – <a href="https://www.usergate.com/" rel="nofollow" >UserGate | UserGate provides multiple security and networking functions in a single appliance.</a></p>
+			<p>Подробнее – <a href="https://www.usergate.com/" rel="nofollow" target="_blank" >UserGate | UserGate provides multiple security and networking functions in a single appliance.</a></p>
 			`,
 				img: "./img/partners/usergate.svg",
 			},
@@ -500,7 +503,7 @@ RuPost – система управления корпоративной поч
 <p>Postgres Professional занимает второе место в мировом рейтинге контрибьюторов открытой СУБД PostgreSQL, являясь одной из крупнейших команд проекта.</p>
 
 
-			<p>Подробнее – <a href="https://postgrespro.ru/" rel="nofollow" >Компания Postgres Professional
+			<p>Подробнее – <a href="https://postgrespro.ru/" rel="nofollow" target="_blank" >Компания Postgres Professional
 </a></p>
 			`,
 				img: "./img/partners/postgrespro.svg",
@@ -564,6 +567,7 @@ RuPost – система управления корпоративной поч
 				breakpoints: {
 					320: {
 						slidesPerView: "auto",
+						spaceBetween: 8,
 					},
 
 					1400: {
@@ -647,15 +651,15 @@ RuPost – система управления корпоративной поч
 
 					arr.forEach((item) => {
 						const partnersCard = `
-					<div class="col-lg-6 mb-3">
+					<div class="col-lg-6 mb-4">
 						<div class="partners-card" data-id="${item.id}">
-							<div class="row">
-								<div class="col-xxl-6 col-md-5">
+							<div class="row " style="height:100%">
+								<div class="col-md-5">
 									<div class="partners-card__image show-more " data-id="${item.id}">
 										<img src="${item.img}" alt="">
 									</div>
 								</div>
-								<div class="col-xxl-6 col-md-7">
+								<div class=" col-md-7 d-flex flex-column">
 									<div class="partners-card__title">
 									  ${item.name}
 									</div>
@@ -711,13 +715,20 @@ RuPost – система управления корпоративной поч
 					const formForPartners = document.querySelector("#form-for-partners");
 					if (index > 0) {
 						formForPartners.classList.add("active");
+
+						const title = target.textContent;
+						this.setTabTitleToForm(title);
 					} else {
 						formForPartners.classList.remove("active");
 					}
 				}
 			});
 		},
-
+		setTabTitleToForm: function (title) {
+			const formForPartners = document.querySelector("#form-for-partners");
+			const formPlaceInput = formForPartners.querySelector('input[name="vendor_name"]');
+			formPlaceInput.value = title;
+		},
 		initSwiper: function (elem) {
 			const swiperElem = elem.querySelector(".swiper"),
 				pagination = elem.querySelector(".swiper-pagination");
@@ -807,7 +818,8 @@ RuPost – система управления корпоративной поч
 		},
 	};
 
-	vendor.init(4, 2);
+	const partners = document.querySelector(".partners");
+	if (partners !== null) vendor.init(4, 2);
 
 	const clientsSwiper = new Swiper(".clients-swiper", {
 		// Optional parameters
@@ -846,378 +858,377 @@ RuPost – система управления корпоративной поч
 			{
 				id: "Saha_YAkutiya_Resp",
 				title: "Республика Саха (Якутия)",
-				num: "+2 клиента"
-
+				num: "+2 клиента",
 			},
 			{
 				id: "Krasnoyarskij_kraj",
 				title: "Красноярский край",
-				num: "+5 клиентов"
+				num: "+5 клиентов",
 			},
 			{
 				id: "Habarovskij_kraj",
 				title: "Хабаровский край",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Irkutskaya_obl",
 				title: "Иркусткая обл.",
-				num: "+3 клиента"
+				num: "+3 клиента",
 			},
 			{
 				id: "YAmalo-Neneckij_AO",
 				title: "Ямало-Ненецкий АО",
-				num: "+4 клиента"
+				num: "+4 клиента",
 			},
 			{
 				id: "Hanty-Mansijskij_AO",
 				title: "Ханты-Мансийский АО",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Magadanskaya_obl",
 				title: "Магаданская обл.",
-				num: "+8 клиентов"
+				num: "+8 клиентов",
 			},
 			{
 				id: "Kamchatskij_kraj",
 				title: "Камчатский край",
-				num: "+10 клиентов"
+				num: "+10 клиентов",
 			},
 			{
 				id: "Komi",
 				title: "Республика Коми",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Buryatiya",
 				title: "Республика Бурятия ",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Tomskaya_obl",
 				title: "Томская обл.",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Arhangelskaya_obl",
 				title: "Архангелская обл.",
-				num: "+5 клиентов"
+				num: "+5 клиентов",
 			},
 			{
 				id: "Sverdlovskaya_obl",
 				title: "Свердловская обл",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Novosibirskaya_obl",
 				title: "Новосибирская обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Primorskij_kraj",
 				title: "Приморский край",
-				num: "+6 клиентов"
+				num: "+6 клиентов",
 			},
 			{
 				id: "Murmanskaya_obl",
 				title: "Мурманская обл.",
-				num: "+5 клиентов"
+				num: "+5 клиентов",
 			},
 			{
 				id: "Permskaya_obl",
 				title: "Пермская обл.",
-				num: "+9 клиентов"
+				num: "+9 клиентов",
 			},
 			{
 				id: "Tyumenskaya_obl",
 				title: "Тюменская обл.",
-				num: "+11 клиентов"
+				num: "+11 клиентов",
 			},
 			{
 				id: "YAmalo-Neneckij_AO_2",
 				title: "Ненецкий АО",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Vologodskaya_obl",
 				title: "Вологодская обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Bashkortostan",
 				title: "Республика Башкортостан",
-				num: "+16 клиентов"
+				num: "+16 клиентов",
 			},
 			{
 				id: "Omskaya_obl",
 				title: "Омская обл.",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Kirovskaya_obl",
 				title: "Кировская обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Orenburgskaya_obl",
 				title: "Оренбургская обл.",
-				num: "+3 клиента"
+				num: "+3 клиента",
 			},
 			{
 				id: "Volgogradskaya_obl",
 				title: "Волгоградская обл.",
-				num: "+21 клиент"
+				num: "+21 клиент",
 			},
 			{
 				id: "Rostovskaya_obl",
 				title: "Ростовская обл.",
-				num: "+11 клиентов"
+				num: "+11 клиентов",
 			},
 			{
 				id: "Saratovskaya_obl",
 				title: "Саратовская обл.",
-				num: "+8 клиентов"
+				num: "+8 клиентов",
 			},
 			{
 				id: "Kemerovskaya_obl",
 				title: "Кемеровская обл.",
-				num: "+5 клиентов"
+				num: "+5 клиентов",
 			},
 			{
 				id: "Tverskaya_obl",
 				title: "Тверская обл.",
-				num: "+3 клиента"
+				num: "+3 клиента",
 			},
 			{
 				id: "CHelyabinskaya_obl",
 				title: "Челябинская обл.",
-				num: "+4 клиента"
+				num: "+4 клиента",
 			},
 			{
 				id: "Respublika_altaj",
 				title: "Республика Алтай",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "krasnodarskij_kraj",
 				title: "Краснодарский Край",
-				num: "+7 клиентов"
+				num: "+7 клиентов",
 			},
 			{
 				id: "Nizhegorodskaya_obl",
 				title: "Нижегородская обл.",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Kalmykiya",
 				title: "Республика Калмыкия",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Kurganskaya_obl",
 				title: "Курганская обл.",
-				num: "+3 клиента"
+				num: "+3 клиента",
 			},
 			{
 				id: "Tatarstan_Resp",
 				title: "Республика Татарстан",
-				num: "+9 клиентов"
+				num: "+9 клиентов",
 			},
 			{
 				id: "Stavropolskij_kraj",
 				title: "Ставропольский край",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Leningradskaya_obl",
 				title: "Ленинградская обл.",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Hakasiya_Res",
 				title: "Республика Хакасия",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Pskovskaya_obl",
 				title: "Псковская обл.",
-				num: "+3 клиента"
+				num: "+3 клиента",
 			},
 			{
 				id: "Kostromskaya_obl",
 				title: "Костромская обл.",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Novgorodskaya_obl",
 				title: "Новгородская обл.",
-				num: "+10 клиентов"
+				num: "+10 клиентов",
 			},
 			{
 				id: "Voronezhskaya_obl",
 				title: "Воронежская обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Dagestan",
 				title: "Республика Дагестан ",
-				num: "+5 клиентов"
+				num: "+5 клиентов",
 			},
 			{
 				id: "Smolenskaya_obl",
 				title: "Смоленская обл.",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Samarskaya_obl",
 				title: "Самарская обл.",
-				num: "+7 клиентов"
+				num: "+7 клиентов",
 			},
 			{
 				id: "Moskovskaya_obl",
 				title: "Московская обл.",
-				num: "+13 клиентов"
+				num: "+13 клиентов",
 			},
 			{
 				id: "Penzenskaya_obl",
 				title: "Пензенская обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Astrahanskaya_obl",
 				title: "Архангельская обл.",
-				num: "+4 клиента"
+				num: "+4 клиента",
 			},
 			{
 				id: "Udmurtskaya_Resp",
 				title: "Республика Удмуртия",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Ryazanskaya_obl",
 				title: "Рязанская обл.",
-				num: "+9 клиентов"
+				num: "+9 клиентов",
 			},
 			{
 				id: "Ulyanovskaya_obl",
 				title: "Ульяновская обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "YAroslavskaya_obl",
 				title: "Ярославская обл.",
-				num: "+3 клиента"
+				num: "+3 клиента",
 			},
 			{
 				id: "Tambovskaya_obl",
 				title: "Тамбовская обл.",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Kurskaya_obl",
 				title: "Курская обл.",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Bryanskaya_obl",
 				title: "Брянская обл.",
-				num: "+4 клиента"
+				num: "+4 клиента",
 			},
 			{
 				id: "Belgorodskaya_obl",
 				title: "Белгородская обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Kaluzhskaya_obl",
 				title: "Калужская обл.",
-				num: "+6 клиентов"
+				num: "+6 клиентов",
 			},
 			{
 				id: "Ivanovskaya_obl",
 				title: "Ивановская обл.",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Vladimirskaya_obl",
 				title: "Владимирская обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Lipeckaya_obl",
 				title: "Липецкая обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Tulskaya_obl",
 				title: "Тульская обл.",
-				num: "+7 клиентов"
+				num: "+7 клиентов",
 			},
 			{
 				id: "Orlovskaya_obl",
 				title: "Орловская обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Marij_El",
 				title: "Республика Марий Эл",
-				num: "+3 клиента"
+				num: "+3 клиента",
 			},
 			{
 				id: "CHuvashskaya_Resp",
 				title: "Чувашская Республика",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "CHerkessk",
 				title: "Карачаево-Черкесская Республика",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "CHechenskaya_Resp",
 				title: "Чеченская Республика",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Nalchik",
 				title: "Кабардино-Балкарская Респ.",
-				num: "+6 клиентов"
+				num: "+6 клиентов",
 			},
 			{
 				id: "Severnaya_Osetiya ",
 				title: "Республика Северная Осетия",
-				num: "+2 клиента"
+				num: "+2 клиента",
 			},
 			{
 				id: "Ingushetiya",
 				title: "Республика Ингушетия",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Moskva",
 				title: "Москва",
-				num: "+4 клиента"
+				num: "+4 клиента",
 			},
 			{
 				id: "Moskva_2",
 				title: "Москва",
-				num: "+4 клиента"
+				num: "+4 клиента",
 			},
 			{
 				id: "YUzhno-Sahalins",
 				title: "Сахалинская обл.",
-				num: "+1 клиент"
+				num: "+1 клиент",
 			},
 			{
 				id: "Krym_Resp",
 				title: "Республика Крым",
-				num: "+4 клиента"
+				num: "+4 клиента",
 			},
 			{
 				id: "Kaliningradskaya_obl",
 				title: "Калининградская обл.",
-				num: "+3 клиента"
+				num: "+3 клиента",
 			},
 		],
 		hover: function () {
@@ -1294,7 +1305,8 @@ RuPost – система управления корпоративной поч
 			}
 		},
 	};
-	map.init();
+	const mapSection = document.querySelector(".map");
+	if (mapSection != null) map.init();
 
 	// маска телефона
 	const telInput = document.querySelectorAll('input[type="tel"]');
@@ -1312,7 +1324,7 @@ RuPost – система управления корпоративной поч
 											width="100"
 											height="630"											
 										></iframe>`;
-		contactsMap.insertAdjacentHTML("afterbegin", iframe);
+		if (contactsMap !== null) contactsMap.insertAdjacentHTML("afterbegin", iframe);
 	}, 2000);
 
 	// отправка формы

@@ -6,29 +6,40 @@
   &__item
     margin: 0 16px
     a
-
+      position: relative
       @include font(16px, 140%)
       display: inline-flex
       flex-direction: column
       align-items: center
       justify-content: space-between
       transition: .3s
-      &::after
-        content: attr(data-text)
-        content: attr(data-text) / ""
-        height: 0
-        visibility: hidden
-        overflow: hidden
-        -webkit-user-select: none
-        -moz-user-select: none
-        -ms-user-select: none
-        user-select: none
-        pointer-events: none
-        font-weight: 600
+      // &::after
+      //   content: attr(data-text)
+      //   content: attr(data-text) / ""
+      //   height: 0
+      //   visibility: hidden
+      //   overflow: hidden
+      //   -webkit-user-select: none
+      //   -moz-user-select: none
+      //   -ms-user-select: none
+      //   user-select: none
+      //   pointer-events: none
+      //   font-weight: 600
+      &:before
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 0
+        background-color: $main-color
+        height: 2px
+        transition: .3s
 @media screen and ( min-width: 992px )
   .header-menu__item a:hover
     color: $main-color
-    font-weight: 600
+    // font-weight: 600
+    &::before
+      width: 100%
 @media screen and ( max-width: 1600px )
   .header-menu__item
     margin: 0 12px

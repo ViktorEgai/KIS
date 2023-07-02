@@ -21,6 +21,9 @@ $body= '';
     if ($_POST['type']) {
     $body .= ' Направление : ' .  $_POST['type'] . '<br> ' ;
     }
+    if ($_POST['vendor_name']) {
+    $body .= ' Категория : ' .  $_POST['vendor_name'] . '<br> ' ;
+    }
 try {
 
 

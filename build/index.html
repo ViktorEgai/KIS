@@ -38,7 +38,7 @@
 			<header class="header">
 	<div class="container">
 		<div class="header-wrapper">
-			<a href="/" class="header__logo logo">
+			<a href="./" class="header__logo logo">
 	<img src="./img/logo.svg" alt="" />
 	<span>Компьютерные Информационные Системы</span>
 </a>
@@ -47,20 +47,20 @@
 			<nav class="header-nav">
 				<ul class="header-menu">
 					<li class="header-menu__item">
-						<a href="#about" data-text="О компании">О компании</a>
+						<a href="./#about" data-text="О компании">О компании</a>
 					</li>
 					<li class="header-menu__item">
-						<a href="#advantages" data-text="Наши возможности">Наши возможности</a>
+						<a href="./#advantages" data-text="Наши возможности">Наши возможности</a>
 					</li>
 					<li class="header-menu__item">
-						<a href="#partners" data-text="Партнеры/Вендоры">Партнеры/Вендоры</a>
+						<a href="./#partners" data-text="Партнеры/Вендоры">Партнеры/Вендоры</a>
 					</li>
 					<li class="header-menu__item">
-						<a href="#clients" data-text="Наши клиенты">Наши клиенты </a>
+						<a href="./#clients" data-text="Наши клиенты">Наши клиенты </a>
 					</li>
 
 					<li class="header-menu__item">
-						<a href="#contacts" data-text="Контакты">Контакты</a>
+						<a href="./#contacts" data-text="Контакты">Контакты</a>
 					</li>
 				</ul>
 			</nav>
@@ -112,20 +112,20 @@
 				<div class="header-mobile-menu__wrapper">
 					<ul class="header-menu">
 						<li class="header-menu__item">
-							<a href="#about" data-text="О компании">О компании</a>
+							<a href="./#about" data-text="О компании">О компании</a>
 						</li>
 						<li class="header-menu__item">
-							<a href="#advantages" data-text="Наши возможности">Наши возможности</a>
+							<a href="./#advantages" data-text="Наши возможности">Наши возможности</a>
 						</li>
 						<li class="header-menu__item">
-							<a href="#partners" data-text="Партнеры/Вендоры">Партнеры/Вендоры</a>
+							<a href="./#partners" data-text="Партнеры/Вендоры">Партнеры/Вендоры</a>
 						</li>
 						<li class="header-menu__item">
-							<a href="#clients" data-text="Наши клиенты">Наши клиенты </a>
+							<a href="./#clients" data-text="Наши клиенты">Наши клиенты </a>
 						</li>
 
 						<li class="header-menu__item">
-							<a href="#contacts" data-text="Контакты">Контакты</a>
+							<a href="./#contacts" data-text="Контакты">Контакты</a>
 						</li>
 					</ul>
 					<div class="header__info">
@@ -317,7 +317,7 @@
 												</div>
 											</div>
 											<div class="col-md-6 mb-4">
-												<div class="advantages-card active" data-aos="fade-up" data-aos-delay="500">
+												<div class="advantages-card active" data-aos="fade-up" data-aos-delay="400">
 													<div class="advantages-card__toggler">
 														<span></span>
 													</div>
@@ -328,7 +328,7 @@
 												</div>
 											</div>
 											<div class="col-md-6 mb-4">
-												<div class="advantages-card active" data-aos="fade-up" data-aos-delay="700">
+												<div class="advantages-card active" data-aos="fade-up" data-aos-delay="500">
 													<div class="advantages-card__toggler">
 														<span></span>
 													</div>
@@ -340,7 +340,7 @@
 												</div>
 											</div>
 											<div class="col-md-6 mb-4">
-												<div class="advantages-card active" data-aos="fade-up" data-aos-delay="900">
+												<div class="advantages-card active" data-aos="fade-up" data-aos-delay="600">
 													<div class="advantages-card__toggler">
 														<span></span>
 													</div>
@@ -412,11 +412,12 @@
 									</div>
 								</div>
 								<div class="col-md-9 col-lg-7 m-auto">
-									<form class="form">
+									<form class="form" autocomplete="off">
 										<div class="form-notice">Заполните данные, и мы проанализируем ваши задачи, предложим возможные варианты решения «под ключ»</div>
 
 										<div class="row">
 											<input autocomplete="off" type="hidden" name="form_place" value="форма под вендором" />
+											<input autocomplete="off" type="hidden" name="vendor_name" value="" />
 											<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 												<label for="username" class="form-label"> Ваше имя* </label>
 												<input autocomplete="off" type="text" class="form-input" required placeholder="Ваше имя" id="username" name="username" />
@@ -589,7 +590,7 @@
 								</div>
 							</div>
 							<div class="col-md-9 col-lg-7 m-auto">
-								<form class="form">
+								<form class="form" autocomplete="off">
 									<div class="form__title">Решим вашу задачу!</div>
 									<div class="form-notice">Заполните данные, и мы проанализируем ваши задачи, предложим возможные варианты решения «под ключ»</div>
 
@@ -740,8 +741,8 @@
 										</li>
 									</ul>
 								</div>
-								<div class="ms-auto col-xl-4 col-md-6">
-									<a href="http://www.cis2000.ru/thanks" class="loyalty-card" data-aos="zoom-out">
+								<div class="ms-auto col-xl-4 col-md-6" data-aos="zoom-out">
+									<a href="http://www.cis2000.ru/thanks" class="loyalty-card">
 										<div class="loyalty-card__image">
 											<picture>
 												<source type="image/webp" srcset="./img/loyalty.webp" />
@@ -1696,7 +1697,7 @@
 								</div>
 							</div>
 							<div class="col-md-9 col-lg-7 m-auto">
-								<form class="form">
+								<form class="form" autocomplete="off">
 									<div class="form__title" data-aos="fade-left">Мы готовы сотрудничать!</div>
 									<div class="form-notice">Заполните данные, и мы проанализируем ваши задачи, предложим возможные варианты решения «под ключ»</div>
 
@@ -1787,17 +1788,19 @@
 		</div>
 		<footer class="footer">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-				<a href="/" class="footer__logo logo">
+		<div class="row align-items-center">
+			<div class="col-md-6 col-xl-3 order-1">
+				<a href="./" class="footer__logo logo">
 	<img src="./img/logo.svg" alt="" />
 	<span>Компьютерные Информационные Системы</span>
 </a>
 
-				<a href="#" class="footer-privacy">Политика конфиденциальности</a>
+				<a href="./privacy-policy.html" class="footer-privacy">Политика конфиденциальности</a>
+			</div>
+			<div class="col-md-8 col-xl-6 order-xl-2 order-3 mt-4 ms-auto me-auto">
 				<div class="footer-copyrights">Copyright © 2023 «КИС» Все права защищены</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 col-xl-3 order-xl-3 order-2">
 				<a href="https://business-up.org/" class="footer__image">
 					<img src="./img/business-up.svg" alt="" />
 				</a>
@@ -1820,7 +1823,7 @@
 	</div>
 	<div class="vendor-popup-descr__title">Описание:</div>
 	<div class="vendor-popup-descr__text"></div>
-	<form class="form popup__form">
+	<form class="form popup__form" autocomplete="off">
 		<div class="form-notice">Заполните данные и мы свяжемся с вами и проконсультируем по интересующему продукту</div>
 
 		<div class="row">
@@ -1857,10 +1860,10 @@
 		<div class="error">Поле или несколько полей заполнены некорректно!</div>
 	</form>
 </div>
-<div class="popup" id="popup">
+<div class="popup" id="popup" data-autofocus="false">
 	<div class="popup-title">Связаться с нами</div>
 
-	<form class="form popup__form">
+	<form class="form popup__form" autocomplete="off">
 		<div class="form-notice">Заполните данные и мы свяжемся с вами и проконсультируем по интересующему продукту</div>
 
 		<div class="row">

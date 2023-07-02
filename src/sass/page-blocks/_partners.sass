@@ -192,7 +192,10 @@
       display: block
       margin-bottom: 4px
   &__btn
-
+    margin-top: auto
+@media screen and ( min-width:1600px )
+  .partners-tab-nav-arrow.swiper-button-disabled
+    display: none
 @media screen and ( min-width:992px )
   .partners-card__image:hover, .partners-card-small:hover
     cursor: pointer
@@ -229,3 +232,24 @@
 @media screen and ( max-width: 992px )
   .partners__title
     margin-bottom: 32px
+@media screen and ( max-width: 576px )
+  // .partners-card-small
+  //   &__title
+  //     font-size: 16px
+  //   &__status
+  //     margin-bottom: 20px
+  //     font-size: 14px
+  //   &__image
+  //     height: 80px
+  .partners-card__image
+    margin-bottom: 16px
+  .partners-tab-nav .swiper-slide
+    max-width: max-content
+  .partners-tab-nav .swiper-slide:first-child
+    max-width: 120px
+    .partners-tab-nav-item
+      min-width: 0
+  .partners-tab-nav-item
+    min-width: fit-content
+  .partners-tab-nav
+    margin-top: -10px
