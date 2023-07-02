@@ -38,18 +38,49 @@ document.addEventListener("DOMContentLoaded", () => {
 		const cardsItems = document.querySelectorAll(".cards-item");
 
 		cardsItems.forEach((item) => {
+			if (
+				navigator.userAgent.match(/Android/i) ||
+				navigator.userAgent.match(/webOS/i) ||
+				navigator.userAgent.match(/iPhone/i) ||
+				navigator.userAgent.match(/iPad/i) ||
+				navigator.userAgent.match(/iPod/i) ||
+				navigator.userAgent.match(/BlackBerry/i) ||
+				navigator.userAgent.match(/Windows Phone/i) ||
+				window.innerWidth < 992
+			) {
+				console.log("mobile");
+				item.addEventListener("click", () => {
+					const back = item.querySelector(".cards-item__back");
+					Fancybox.show([{ src: back, type: "inline" }]);
+				});
+			}
+
 			item.addEventListener("mouseenter", () => {
 				item.classList.add("hovered");
 			});
 			item.addEventListener("mouseleave", () => {
 				item.classList.remove("hovered");
 			});
-			item.addEventListener("click", () => {
-				item.classList.toggle("hovered");
-			});
+			// item.addEventListener("click", () => {
+
+			// 	const back = item.querySelector('.cards-item__back');
+			// 	Fancybox.show([{ src: back, type: "inline" }]);
+			// });
 		});
 	};
 	flipCards();
+
+	const moveCatBG = () => {
+		const hero_image = document.querySelector(".hero__image");
+
+		document.addEventListener("mousemove", (e) => {
+			const x = e.screenX / 300,
+				y = -e.screenY / 100;
+
+			hero_image.setAttribute("style", `--x:${x}% ;--y:${y}%;`);
+		});
+	};
+	moveCatBG();
 
 	const toggleAdvantagesCards = () => {
 		const advantages = document.querySelector(".advantages");
@@ -505,12 +536,49 @@ RuPost – система управления корпоративной поч
 			return elem;
 		},
 		createTabNav: function () {
-			const navTab = document.querySelector(".partners-tab-nav");
+			const navTab = document.querySelector(".partners-tab-nav .swiper-wrapper");
 			this.categories.forEach((item, index) => {
-				const btn = `<button class="partners-tab-nav-item " data-index="${index + 1}" data-id="${item.id}"> ${item.title}	</button>`;
+				const btn = `<div class="swiper-slide"><button class="partners-tab-nav-item " data-index="${index + 1}" data-id="${item.id}"> ${
+					item.title
+				}	</button></div>`;
 
 				navTab.insertAdjacentHTML("beforeend", btn);
 			});
+
+			const navTabSWiper = new Swiper(".partners-tab-nav", {
+				// Optional parameters
+
+				loop: false,
+
+				spaceBetween: 0,
+				freeMode: true,
+				preventClicks: true,
+				a11y: false,
+				// Navigation arrows
+
+				navigation: {
+					nextEl: ".partners-tab-nav-arrow--next",
+					prevEl: ".partners-tab-nav-arrow--prev",
+				},
+
+				breakpoints: {
+					320: {
+						slidesPerView: "auto",
+					},
+
+					1400: {
+						slidesPerView: 6,
+					},
+					1600: {
+						slidesPerView: 7,
+					},
+				},
+			});
+			// const nextBtn = document.querySelector('.partners-tab-nav-arrow--next');
+			// const prevBtn = document.querySelector('.partners-tab-nav-arrow--prev');
+			// nextBtn.addEventListener('click', () => {
+			// 	navTabSWiper.slideNext()
+			// });
 		},
 
 		showAllVendors: function (size = 8) {
@@ -748,10 +816,10 @@ RuPost – система управления корпоративной поч
 		slidesPerView: 6,
 		spaceBetween: 32,
 		// If we need pagination
-		pagination: {
-			el: ".clients-bottom-pagination",
-			clickable: true,
-		},
+		// pagination: {
+		// 	el: ".clients-bottom-pagination",
+		// 	clickable: true,
+		// },
 
 		// Navigation arrows
 		navigation: {
@@ -778,302 +846,378 @@ RuPost – система управления корпоративной поч
 			{
 				id: "Saha_YAkutiya_Resp",
 				title: "Республика Саха (Якутия)",
+				num: "+2 клиента"
+
 			},
 			{
 				id: "Krasnoyarskij_kraj",
 				title: "Красноярский край",
+				num: "+5 клиентов"
 			},
 			{
 				id: "Habarovskij_kraj",
 				title: "Хабаровский край",
+				num: "+1 клиент"
 			},
 			{
 				id: "Irkutskaya_obl",
 				title: "Иркусткая обл.",
+				num: "+3 клиента"
 			},
 			{
 				id: "YAmalo-Neneckij_AO",
 				title: "Ямало-Ненецкий АО",
+				num: "+4 клиента"
 			},
 			{
 				id: "Hanty-Mansijskij_AO",
 				title: "Ханты-Мансийский АО",
+				num: "+1 клиент"
 			},
 			{
 				id: "Magadanskaya_obl",
 				title: "Магаданская обл.",
+				num: "+8 клиентов"
 			},
 			{
 				id: "Kamchatskij_kraj",
 				title: "Камчатский край",
+				num: "+10 клиентов"
 			},
 			{
 				id: "Komi",
 				title: "Республика Коми",
+				num: "+1 клиент"
 			},
 			{
 				id: "Buryatiya",
 				title: "Республика Бурятия ",
+				num: "+1 клиент"
 			},
 			{
 				id: "Tomskaya_obl",
 				title: "Томская обл.",
+				num: "+2 клиента"
 			},
 			{
 				id: "Arhangelskaya_obl",
 				title: "Архангелская обл.",
+				num: "+5 клиентов"
 			},
 			{
 				id: "Sverdlovskaya_obl",
 				title: "Свердловская обл",
+				num: "+2 клиента"
 			},
 			{
 				id: "Novosibirskaya_obl",
 				title: "Новосибирская обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "Primorskij_kraj",
 				title: "Приморский край",
+				num: "+6 клиентов"
 			},
 			{
 				id: "Murmanskaya_obl",
 				title: "Мурманская обл.",
+				num: "+5 клиентов"
 			},
 			{
 				id: "Permskaya_obl",
 				title: "Пермская обл.",
+				num: "+9 клиентов"
 			},
 			{
 				id: "Tyumenskaya_obl",
 				title: "Тюменская обл.",
+				num: "+11 клиентов"
 			},
 			{
 				id: "YAmalo-Neneckij_AO_2",
 				title: "Ненецкий АО",
+				num: "+1 клиент"
 			},
 			{
 				id: "Vologodskaya_obl",
 				title: "Вологодская обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "Bashkortostan",
 				title: "Республика Башкортостан",
+				num: "+16 клиентов"
 			},
 			{
 				id: "Omskaya_obl",
 				title: "Омская обл.",
+				num: "+2 клиента"
 			},
 			{
 				id: "Kirovskaya_obl",
 				title: "Кировская обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "Orenburgskaya_obl",
 				title: "Оренбургская обл.",
+				num: "+3 клиента"
 			},
 			{
 				id: "Volgogradskaya_obl",
 				title: "Волгоградская обл.",
+				num: "+21 клиент"
 			},
 			{
 				id: "Rostovskaya_obl",
 				title: "Ростовская обл.",
+				num: "+11 клиентов"
 			},
 			{
 				id: "Saratovskaya_obl",
 				title: "Саратовская обл.",
+				num: "+8 клиентов"
 			},
 			{
 				id: "Kemerovskaya_obl",
 				title: "Кемеровская обл.",
+				num: "+5 клиентов"
 			},
 			{
 				id: "Tverskaya_obl",
 				title: "Тверская обл.",
+				num: "+3 клиента"
 			},
 			{
 				id: "CHelyabinskaya_obl",
 				title: "Челябинская обл.",
+				num: "+4 клиента"
 			},
 			{
 				id: "Respublika_altaj",
 				title: "Республика Алтай",
+				num: "+1 клиент"
 			},
 			{
 				id: "krasnodarskij_kraj",
 				title: "Краснодарский Край",
+				num: "+7 клиентов"
 			},
 			{
 				id: "Nizhegorodskaya_obl",
 				title: "Нижегородская обл.",
+				num: "+2 клиента"
 			},
 			{
 				id: "Kalmykiya",
 				title: "Республика Калмыкия",
+				num: "+1 клиент"
 			},
 			{
 				id: "Kurganskaya_obl",
 				title: "Курганская обл.",
+				num: "+3 клиента"
 			},
 			{
 				id: "Tatarstan_Resp",
 				title: "Республика Татарстан",
+				num: "+9 клиентов"
 			},
 			{
 				id: "Stavropolskij_kraj",
 				title: "Ставропольский край",
+				num: "+1 клиент"
 			},
 			{
 				id: "Leningradskaya_obl",
 				title: "Ленинградская обл.",
+				num: "+2 клиента"
 			},
 			{
 				id: "Hakasiya_Res",
 				title: "Республика Хакасия",
+				num: "+1 клиент"
 			},
 			{
 				id: "Pskovskaya_obl",
 				title: "Псковская обл.",
+				num: "+3 клиента"
 			},
 			{
 				id: "Kostromskaya_obl",
 				title: "Костромская обл.",
+				num: "+2 клиента"
 			},
 			{
 				id: "Novgorodskaya_obl",
 				title: "Новгородская обл.",
+				num: "+10 клиентов"
 			},
 			{
 				id: "Voronezhskaya_obl",
 				title: "Воронежская обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "Dagestan",
 				title: "Республика Дагестан ",
+				num: "+5 клиентов"
 			},
 			{
 				id: "Smolenskaya_obl",
 				title: "Смоленская обл.",
+				num: "+2 клиента"
 			},
 			{
 				id: "Samarskaya_obl",
 				title: "Самарская обл.",
+				num: "+7 клиентов"
 			},
 			{
 				id: "Moskovskaya_obl",
 				title: "Московская обл.",
+				num: "+13 клиентов"
 			},
 			{
 				id: "Penzenskaya_obl",
 				title: "Пензенская обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "Astrahanskaya_obl",
 				title: "Архангельская обл.",
+				num: "+4 клиента"
 			},
 			{
 				id: "Udmurtskaya_Resp",
 				title: "Республика Удмуртия",
+				num: "+1 клиент"
 			},
 			{
 				id: "Ryazanskaya_obl",
 				title: "Рязанская обл.",
+				num: "+9 клиентов"
 			},
 			{
 				id: "Ulyanovskaya_obl",
 				title: "Ульяновская обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "YAroslavskaya_obl",
 				title: "Ярославская обл.",
+				num: "+3 клиента"
 			},
 			{
 				id: "Tambovskaya_obl",
 				title: "Тамбовская обл.",
+				num: "+2 клиента"
 			},
 			{
 				id: "Kurskaya_obl",
 				title: "Курская обл.",
+				num: "+2 клиента"
 			},
 			{
 				id: "Bryanskaya_obl",
 				title: "Брянская обл.",
+				num: "+4 клиента"
 			},
 			{
 				id: "Belgorodskaya_obl",
 				title: "Белгородская обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "Kaluzhskaya_obl",
 				title: "Калужская обл.",
+				num: "+6 клиентов"
 			},
 			{
 				id: "Ivanovskaya_obl",
 				title: "Ивановская обл.",
+				num: "+2 клиента"
 			},
 			{
 				id: "Vladimirskaya_obl",
 				title: "Владимирская обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "Lipeckaya_obl",
 				title: "Липецкая обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "Tulskaya_obl",
 				title: "Тульская обл.",
+				num: "+7 клиентов"
 			},
 			{
 				id: "Orlovskaya_obl",
 				title: "Орловская обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "Marij_El",
 				title: "Республика Марий Эл",
+				num: "+3 клиента"
 			},
 			{
 				id: "CHuvashskaya_Resp",
 				title: "Чувашская Республика",
+				num: "+2 клиента"
 			},
 			{
 				id: "CHerkessk",
 				title: "Карачаево-Черкесская Республика",
+				num: "+1 клиент"
 			},
 			{
 				id: "CHechenskaya_Resp",
 				title: "Чеченская Республика",
+				num: "+2 клиента"
 			},
 			{
 				id: "Nalchik",
 				title: "Кабардино-Балкарская Респ.",
+				num: "+6 клиентов"
 			},
 			{
 				id: "Severnaya_Osetiya ",
 				title: "Республика Северная Осетия",
+				num: "+2 клиента"
 			},
 			{
 				id: "Ingushetiya",
 				title: "Республика Ингушетия",
+				num: "+1 клиент"
 			},
 			{
 				id: "Moskva",
 				title: "Москва",
+				num: "+4 клиента"
 			},
 			{
 				id: "Moskva_2",
 				title: "Москва",
+				num: "+4 клиента"
 			},
 			{
 				id: "YUzhno-Sahalins",
 				title: "Сахалинская обл.",
+				num: "+1 клиент"
 			},
 			{
 				id: "Krym_Resp",
 				title: "Республика Крым",
+				num: "+4 клиента"
 			},
 			{
 				id: "Kaliningradskaya_obl",
 				title: "Калининградская обл.",
+				num: "+3 клиента"
 			},
 		],
 		hover: function () {
@@ -1081,6 +1225,7 @@ RuPost – система управления корпоративной поч
 			const path = map.querySelectorAll("path");
 			const mapFieldItem = document.querySelector(".map-field__item");
 			const title = mapFieldItem.querySelector(".map-field__item-title");
+			const text = mapFieldItem.querySelector(".map-field__item-text");
 
 			path.forEach((item) => {
 				item.addEventListener("mouseenter", (e) => {
@@ -1088,6 +1233,7 @@ RuPost – система управления корпоративной поч
 						if (region.id == item.id) {
 							item.classList.add("hovered");
 							title.textContent = region.title;
+							text.textContent = region.num;
 							mapFieldItem.classList.add("active");
 						}
 					});
@@ -1169,26 +1315,25 @@ RuPost – система управления корпоративной поч
 		contactsMap.insertAdjacentHTML("afterbegin", iframe);
 	}, 2000);
 
+	// отправка формы
 	const sendForm = () => {
 		const forms = document.querySelectorAll("form");
 
 		// обработчик для всех форм
 		forms.forEach((form) => {
 			// валидация
-
-			form.addEventListener("change", (e) => {
+			const validate = (e) => {
 				const input = e.target;
 				const inputRequired = input.getAttribute("required");
 				const error = form.querySelector(".error");
 
 				if (inputRequired !== null) {
 					if (input.type == "text") {
-						if (input.value.length < 3) {
+						if (input.value.length < 3 || input.value.match(/\s/gi)) {
 							input.classList.add("invalid");
 							error.classList.add("active");
 						} else {
 							input.classList.remove("invalid");
-							error.classList.remove("active");
 						}
 					}
 					if (input.type == "tel") {
@@ -1197,11 +1342,28 @@ RuPost – система управления корпоративной поч
 							error.classList.add("active");
 						} else {
 							input.classList.remove("invalid");
-							error.classList.remove("active");
 						}
 					}
 				}
+
+				const invalidInputs = form.querySelectorAll(".invalid");
+				if (invalidInputs.length == 0) {
+					error.classList.remove("active");
+				}
+			};
+			form.addEventListener("change", (e) => {
+				validate(e);
 			});
+			form.addEventListener("input", (e) => {
+				validate(e);
+			});
+			form.addEventListener(
+				"blur",
+				(e) => {
+					validate(e);
+				},
+				true
+			);
 
 			// событие сабмит
 			form.addEventListener("submit", (event) => {
@@ -1228,7 +1390,6 @@ RuPost – система управления корпоративной поч
 					// очистка инпутов после отправки
 					[...form].forEach((input) => {
 						input.value = "";
-						if (input.type === "checkbox") input.checked = false;
 					});
 				} else {
 					return;
@@ -1248,7 +1409,7 @@ RuPost – система управления корпоративной поч
 	sendForm();
 
 	AOS.init({
-		duration: 1000,
+		duration: 1200,
 		once: true,
 	});
 	// конец DOMContentLoaded

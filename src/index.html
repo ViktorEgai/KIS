@@ -19,7 +19,7 @@
 									</div>
 								</div>
 
-								<div class="hero__image" data-aos="zoom-in-out">
+								<div class="hero__image">
 									<picture>
 										<source type="image/webp" srcset="./img/cat.webp" />
 										<source type="image/png" srcset="./img/cat.png" />
@@ -36,8 +36,8 @@
 					<div class="container">
 						<div class="cards-wrapper">
 							<div class="row">
-								<div class="col-md-6 mb-4 mb-md-0">
-									<div class="cards-item" data-aos="fade-down">
+								<div class="col-md-6 mb-4 mb-md-0" data-aos="fade-down">
+									<div class="cards-item">
 										<div class="cards-item__inner">
 											<div class="cards-item__front">
 												<div class="cards-item__image">
@@ -76,8 +76,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="cards-item" data-aos="fade-down" data-aos-delay="300">
+								<div class="col-md-6" data-aos="fade-down" data-aos-delay="300">
+									<div class="cards-item">
 										<div class="cards-item__inner">
 											<div class="cards-item__front">
 												<div class="cards-item__image">
@@ -202,8 +202,34 @@
 						<div class="partners-wrapper">
 							<h2 class="partners__title section-title" data-aos="fade-right">Партнёры/Вендоры</h2>
 							<div class="partners-tab" data-aos="fade-down" data-aos-delay="300">
-								<div class="partners-tab-nav">
-									<button class="partners-tab-nav-item active" data-index="0">Все</button>
+								<div class="partners-tab-nav swiper">
+									<div class="partners-tab-nav__arrows">
+										<button class="partners-tab-nav-arrow partners-tab-nav-arrow--prev">
+											<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path
+													fill-rule="evenodd"
+													clip-rule="evenodd"
+													d="M6.65129 10.8841C6.89728 11.1298 6.89745 11.5285 6.65167 11.7745C6.40589 12.0205 6.00723 12.0207 5.76124 11.7749L0.41635 6.43461C0.170358 6.18883 0.170186 5.79017 0.415965 5.54418L5.75624 0.199286C6.00202 -0.0467064 6.40068 -0.046878 6.64667 0.198901C6.89266 0.444681 6.89284 0.84334 6.64706 1.08933L2.38116 5.35891L15.108 5.35342C15.4557 5.35327 15.7377 5.63504 15.7379 5.98277C15.738 6.33051 15.4563 6.61252 15.1085 6.61268L2.38171 6.61817L6.65129 10.8841Z"
+													fill="black"
+													fill-opacity="0.2"
+												/>
+											</svg>
+										</button>
+										<button class="partners-tab-nav-arrow partners-tab-nav-arrow--next">
+											<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path
+													fill-rule="evenodd"
+													clip-rule="evenodd"
+													d="M9.34871 1.11593C9.10272 0.870151 9.10255 0.471492 9.34833 0.2255C9.59411 -0.0204921 9.99277 -0.0206644 10.2388 0.225115L15.5836 5.56539C15.8296 5.81117 15.8298 6.20983 15.584 6.45582L10.2438 11.8007C9.99798 12.0467 9.59932 12.0469 9.35333 11.8011C9.10734 11.5553 9.10716 11.1567 9.35294 10.9107L13.6188 6.64109L0.892007 6.64658C0.544273 6.64673 0.262256 6.36496 0.262106 6.01723C0.261956 5.66949 0.543728 5.38748 0.891463 5.38732L13.6183 5.38183L9.34871 1.11593Z"
+													fill="black"
+													fill-opacity="0.2"
+												/>
+											</svg>
+										</button>
+									</div>
+									<div class="swiper-wrapper">
+										<div class="swiper-slide"><button class="partners-tab-nav-item active" data-index="0">Все</button></div>
+									</div>
 								</div>
 								<div class="partners-tab-body"></div>
 							</div>
@@ -227,22 +253,29 @@
 										<div class="form-notice">Заполните данные, и мы проанализируем ваши задачи, предложим возможные варианты решения «под ключ»</div>
 
 										<div class="row">
-											<input type="hidden" name="form_place" value="форма под вендором" />
+											<input autocomplete="off" type="hidden" name="form_place" value="форма под вендором" />
 											<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 												<label for="username" class="form-label"> Ваше имя* </label>
-												<input type="text" class="form-input" required placeholder="Ваше имя" id="username" name="username" />
+												<input autocomplete="off" type="text" class="form-input" required placeholder="Ваше имя" id="username" name="username" />
 											</div>
 											<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 												<label for="usercompany" class="form-label"> Название компании </label>
-												<input type="text" class="form-input" placeholder="Название компании" id="usercompany" name="usercompany" />
+												<input
+													autocomplete="off"
+													type="text"
+													class="form-input"
+													placeholder="Название компании"
+													id="usercompany"
+													name="usercompany"
+												/>
 											</div>
 											<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 												<label for="userphone" class="form-label"> Ваш телефон* </label>
-												<input type="tel" class="form-input" required placeholder="Ваш телефон*" id="userphone" name="userphone" />
+												<input autocomplete="off" type="tel" class="form-input" required placeholder="Ваш телефон*" id="userphone" name="userphone" />
 											</div>
 											<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 												<label for="useremail" class="form-label">Ваш Email </label>
-												<input type="email" class="form-input" placeholder="Ваш Email" id="useremail" name="useremail" />
+												<input autocomplete="off" type="email" class="form-input" placeholder="Ваш Email" id="useremail" name="useremail" />
 											</div>
 											<div class="col mt-3">
 												<label for="usercomment" class="form-label">Комментарий </label>
@@ -258,7 +291,7 @@
 											<button class="btn form-btn" type="submit">Отправить заявку</button>
 
 											<label class="form-acceptance">
-												<input type="checkbox" name="acceptance" checked />
+												<input autocomplete="off" type="checkbox" name="acceptance" checked />
 												<span>Даю свое согласие на обработку персональных данных</span></label
 											>
 										</div>
@@ -398,7 +431,7 @@
 									<div class="form-notice">Заполните данные, и мы проанализируем ваши задачи, предложим возможные варианты решения «под ключ»</div>
 
 									<div class="row">
-										<input type="hidden" name="form_place" value="Форма решим Вашу задачу!" />
+										<input autocomplete="off" type="hidden" name="form_place" value="Форма решим Вашу задачу!" />
 										<div class="mb-3">
 											<label for="type" class="form-label"> Выберите направление </label>
 											<select name="type" id="type" class="form-input form__select">
@@ -414,19 +447,26 @@
 										</div>
 										<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 											<label for="username_3" class="form-label"> Ваше имя* </label>
-											<input type="text" class="form-input" required placeholder="Ваше имя" id="username_3" name="username" />
+											<input autocomplete="off" type="text" class="form-input" required placeholder="Ваше имя" id="username_3" name="username" />
 										</div>
 										<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 											<label for="usercompany_3" class="form-label"> Название компании </label>
-											<input type="text" class="form-input" placeholder="Название компании" id="usercompany_3" name="usercompany" />
+											<input
+												autocomplete="off"
+												type="text"
+												class="form-input"
+												placeholder="Название компании"
+												id="usercompany_3"
+												name="usercompany"
+											/>
 										</div>
 										<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 											<label for="userphone_3" class="form-label"> Ваш телефон* </label>
-											<input type="tel" class="form-input" required placeholder="Ваш телефон*" id="userphone_3" name="userphone" />
+											<input autocomplete="off" type="tel" class="form-input" required placeholder="Ваш телефон*" id="userphone_3" name="userphone" />
 										</div>
 										<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 											<label for="useremail_3" class="form-label">Ваш Email </label>
-											<input type="email" class="form-input" placeholder="Ваш Email" id="useremail_3" name="useremail" />
+											<input autocomplete="off" type="email" class="form-input" placeholder="Ваш Email" id="useremail_3" name="useremail" />
 										</div>
 										<div class="col mt-3">
 											<label for="usercomment_3" class="form-label">Комментарий </label>
@@ -442,7 +482,7 @@
 										<button class="btn form-btn" type="submit">Отправить заявку</button>
 
 										<label class="form-acceptance">
-											<input type="checkbox" name="acceptance" checked />
+											<input autocomplete="off" type="checkbox" name="acceptance" checked />
 											<span>Даю свое согласие на обработку персональных данных</span></label
 										>
 									</div>
@@ -1498,22 +1538,29 @@
 									<div class="form-notice">Заполните данные, и мы проанализируем ваши задачи, предложим возможные варианты решения «под ключ»</div>
 
 									<div class="row">
-										<input type="hidden" name="form_place" value="Форма Мы готовы сотрудничать!" />
+										<input autocomplete="off" type="hidden" name="form_place" value="Форма Мы готовы сотрудничать!" />
 										<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 											<label for="username_2" class="form-label"> Ваше имя* </label>
-											<input type="text" class="form-input" required placeholder="Ваше имя" id="username_2" name="username" />
+											<input autocomplete="off" type="text" class="form-input" required placeholder="Ваше имя" id="username_2" name="username" />
 										</div>
 										<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 											<label for="usercompany_2" class="form-label"> Название компании </label>
-											<input type="text" class="form-input" placeholder="Название компании" id="usercompany_2" name="usercompany" />
+											<input
+												autocomplete="off"
+												type="text"
+												class="form-input"
+												placeholder="Название компании"
+												id="usercompany_2"
+												name="usercompany"
+											/>
 										</div>
 										<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 											<label for="userphone_2" class="form-label"> Ваш телефон* </label>
-											<input type="tel" class="form-input" required placeholder="Ваш телефон*" id="userphone_2" name="userphone" />
+											<input autocomplete="off" type="tel" class="form-input" required placeholder="Ваш телефон*" id="userphone_2" name="userphone" />
 										</div>
 										<div class="col-xxl-3 col-lg-6 d-flex flex-column justify-content-end mb-3 md-xxl-0">
 											<label for="useremail_2" class="form-label">Ваш Email </label>
-											<input type="email" class="form-input" placeholder="Ваш Email" id="useremail_2" name="useremail" />
+											<input autocomplete="off" type="email" class="form-input" placeholder="Ваш Email" id="useremail_2" name="useremail" />
 										</div>
 										<div class="col mt-3">
 											<label for="usercomment_2" class="form-label">Комментарий </label>
@@ -1529,7 +1576,7 @@
 										<button class="btn form-btn" type="submit">Отправить заявку</button>
 
 										<label class="form-acceptance">
-											<input type="checkbox" name="acceptance" checked />
+											<input autocomplete="off" type="checkbox" name="acceptance" checked />
 											<span>Даю свое согласие на обработку персональных данных</span></label
 										>
 									</div>
